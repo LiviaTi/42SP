@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 13:03:39 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 10:48:49 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/15 13:03:18 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_bzero(void *s, size_t len)
 {
-	size_t	len;
+	unsigned char	*ptr;
+	size_t			i;
 
-	len = 0;
-	while (str[len] != '\0')
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < len)
 	{
-		len++;
-	}
-	return (len);
-}
-
-/*
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-	int i;
-
-	i = 1;
-	while (i < argc)
-	{
-		printf("\n The size of the string is %d", ft_strlen(argv[i]));
+		ptr[i] = 0;
 		i++;
 	}
-	return (0);
+}
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    char str[] = "Olá, mundo!";
+
+    printf("Antes: %s\n", str);
+    ft_bzero(str+2, 7);
+    printf("Depois: %s\n", str);
+
+    return 0;
 }
 */

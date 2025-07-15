@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 13:03:39 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 15:37:42 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/15 16:33:09 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *str)
+int	ft_tolower(int c)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
+	if (c >= 65 && c <= 90)
 	{
-		len++;
+		return (c + 32);
 	}
-	return (len);
+	return (c);
 }
 
 /*
 #include <stdio.h>
-int main(int argc, char *argv[])
+int main (void)
 {
-	int i;
+	char letter = 'Z';
 
-	i = 1;
-	while (i < argc)
-	{
-		printf("\n The size of the string is %d", ft_strlen(argv[i]));
-		i++;
-	}
-	return (0);
+	letter = ft_tolower(letter);
+	printf("%c \n", letter);
 }
 */

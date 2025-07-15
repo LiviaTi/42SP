@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 13:03:39 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 15:21:59 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/15 16:33:19 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *str)
+int	ft_toupper(int c)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
+	if (c >= 97 && c <= 122)
 	{
-		len++;
+		return (c - 32);
 	}
-	return (len);
+	return (c);
 }
 
 /*
 #include <stdio.h>
-int main(int argc, char *argv[])
+int main(void)
 {
-	int i;
-
-	i = 1;
-	while (i < argc)
-	{
-		printf("\n The size of the string is %d", ft_strlen(argv[i]));
-		i++;
-	}
-	return (0);
+	char letter = 'l';
+	
+	printf("%c\n",ft_toupper(letter));
 }
 */

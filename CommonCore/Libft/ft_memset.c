@@ -6,26 +6,28 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 17:14:00 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/14 18:39:02 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:59:42 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c,unsigned int buf)
-{
-	unsigned char	*p = (unsigned char *)s;
-	unsigned char	value = (unsigned char)c;
-	unsigned int	i;
+#include "libft.h"
 
+void	*ft_memset(void *s, int c, size_t len)
+{
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)s;
 	i = 0;
-    while (i < buf) 
+	while (i < len)
 	{
-        p[i] = value;
-        i++;
-    }
-    return (s);
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
 }
 
-
+/*
 #include <stdio.h>
 int main() {
     char buffer[5];
@@ -38,3 +40,4 @@ int main() {
 
     return 0;
 }
+*/

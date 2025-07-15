@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 13:03:39 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 15:45:53 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/15 16:16:16 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	len;
+	int	i;
 
-	len = 0;
-	while (str[len] != '\0')
+	i = 0;
+	while (s[i] != '\0')
 	{
-		len++;
+		if (s[i] == (char)c)
+		{
+			return ((char *)&s[i]);
+		}
+		i++;
 	}
-	return (len);
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
 }
 
 /*
 #include <stdio.h>
-int main(int argc, char *argv[])
+int main(void)
 {
-	int i;
+	const char *s = "livia";
 
-	i = 1;
-	while (i < argc)
-	{
-		printf("\n The size of the string is %d", ft_strlen(argv[i]));
-		i++;
-	}
-	return (0);
+	char *p = ft_strchr(s, 'v');
+
+	printf("%p\n", (void *)p);
+    return 0;
 }
 */
