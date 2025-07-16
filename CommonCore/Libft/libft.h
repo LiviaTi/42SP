@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:27:59 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 17:07:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/16 14:04:35 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	*ft_memset(void *s, int c, size_t len);
 void	ft_bzero(void *s, size_t len);
 void	*ft_memcpy(void *dest, const void *src, size_t len);
 void	*ft_memmove(void *dest, const void *src, size_t len);
+size_t	strlcpy(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
