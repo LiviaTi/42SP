@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:48:49 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/15 13:03:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:41:35 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int main(void)
 {
     char str[] = "Olá, mundo!";
 
-    printf("Antes: %s\n", str);
+    printf("Before: %s\n", str);
     ft_bzero(str+2, 7);
-    printf("Depois: %s\n", str);
+    printf("After: %s\n", str);
 
     return 0;
 }
