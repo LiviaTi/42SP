@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:40:10 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/16 19:57:35 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/18 12:21:12 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	src = (const unsigned char *)s;
 	a = (unsigned char)c;
-
-	while (n--)
+	while (i < n)
 	{
-		if (src[i] == c)
+		if (src[i] == a)
 		{
 			return ((void *)&src[i]);
 		}
@@ -35,14 +34,14 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*
 #include <stdio.h>
 int main() {
-    char str[] = "Hello, world!";
-    int c = 'o';  
+	char s[] = {0, 1, 2 ,3 ,4 ,5};
 
-    void *result = ft_memchr(str, c, sizeof(str));
+
+    void *result = ft_memchr(s, 2, 3);
     if (result != NULL) {
-        printf("Character '%c' found at position %ld\n", c, (unsigned char *)result - (unsigned char *)str);
+        printf("Character  found at position %ld\n", (unsigned char *)result - (unsigned char *)s);
     } else {
-        printf("Character '%c' not found\n", c);
+        printf("Character  not found\n");
     }
     return 0;
 }

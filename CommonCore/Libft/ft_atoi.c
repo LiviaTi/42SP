@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 15:52:35 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/16 18:34:01 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/17 12:41:13 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/18 11:41:25 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_atoi(const char *nptr)
 {
+	int		convert;
 	size_t	i;
-	size_t	str_lendst;
-	size_t	str_len;
-	size_t	str_lensrc;
+	int		sign;
 
+	sign = 1;
 	i = 0;
-	str_lendst = 0;
-	str_len = 0;
-	str_lensrc = 0;
-	while (dst[str_lendst] != '\0')
+	convert = 0;
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n')
 	{
-		str_lendst++;
+		i++;
 	}
-	if (size == 0 || src == '\0')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		return (str_lendst);
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	while (src[str_lensrc] != '\0')
+	while ((nptr[i] >= '0') && (nptr[i] <='9'))
 	{
-		str_lensrc++;
+		convert = convert * 10 + (nptr[i] - '0');
+		i++;
 	}
-	str_len = ((str_lendst-1) + (str_lensrc-1));
-
-	return(str_len);
-
+	return (convert * sign);
 }
+/*
 #include <stdio.h>
 int main(void)
 {
-	char dst[] = "livia";
-	const char src[] = "davi";
+	char str[] = "1234";
 
-	printf("The size of the strlcat is: %ld",ft_strlcat(dst,src,2));
+	printf("The number is: %d", ft_atoi(str));
+	return (0);
 }
+*/

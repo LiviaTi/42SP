@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 10:48:49 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/18 12:03:49 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/18 11:03:09 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/18 14:27:30 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t len)
+char *ft_strdup(const char *s)
 {
-	ft_memset(s,0,len);
+	char	*ptrCopy;
+	size_t	i;
+	size_t	size;
+
+	size = ft_strlen(s);
+	ptrCopy = malloc(size);
+	if (s[i] == '\0')
+	{
+		return (NULL);
+	}
+	while(s[i] != '\0')
+	{
+		ptrCopy[i] = s[i];
+		i++;
+	}
 }
-/*
+
 #include <stdio.h>
-
-int main(void)
+int main (void)
 {
-    char str[] = "Olá, mundo!";
+	const char original[] = "livia";
+	char *copy;
+	size_t	size;
+	size_t	i;
+	
+	size = ft_strlen(original);
+	copy = ft_strdup(original);
 
-    printf("Before: %s\n", str);
-    ft_bzero(str+2, 7);
-    printf("After: %s\n", str);
-
-    return 0;
+	printf("%s", copy);
+	
+	free(copy);
 }
-*/
