@@ -6,35 +6,34 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:04:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/16 15:23:43 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/20 17:21:53 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
-	size_t				i;
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
-	i = 0;
-	if (d == s || len == 0)
+	if (d == s || n == 0)
 		return (dest);
 	if (d < s)
 	{
-		while (i < len)
+		while (n--)
 		{
-			d[i] = s[i];
-			i++;
+			*d = *s;
+			d++;
+			s++;
 		}
 	}
 	else
 	{
-		while (len--)
-			d[len] = s[len];
+		while (n--)
+			d[n] = s[n];
 	}
 	return (dest);
 }

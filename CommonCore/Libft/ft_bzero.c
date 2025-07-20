@@ -6,27 +6,40 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:48:49 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/18 12:03:49 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/20 14:51:27 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s,0,len);
+	unsigned char *ptr;
+
+	ptr = (unsigned char *)s;
+	while(n--)
+	{
+		*ptr++ = 0;
+	}
 }
+
 /*
 #include <stdio.h>
+int main() {
+	char buffer[] = "abcdefghi";
+	int i = 0;
 
-int main(void)
-{
-    char str[] = "Olá, mundo!";
+	printf("Antes: %s\n", buffer);
 
-    printf("Before: %s\n", str);
-    ft_bzero(str+2, 7);
-    printf("After: %s\n", str);
+	ft_bzero(buffer, sizeof(buffer));
 
-    return 0;
+	printf("Depois:");
+	while (i < sizeof(buffer)) {
+		printf(" %02X", (unsigned char)buffer[i]);
+		i++;
+	}
+	printf("\n");
+
+	return 0;
 }
 */
