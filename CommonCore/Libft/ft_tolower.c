@@ -6,13 +6,15 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 16:48:13 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:11:18 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	return (c >= 65 && c <= 90);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }
 
 /*

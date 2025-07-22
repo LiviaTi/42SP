@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:16:49 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 16:00:42 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/21 09:15:20 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (src_len >= size)
 		copy_len = size - 1;
 	else
+	{
 		copy_len = src_len;
+	}	
 	while (i < copy_len)
 	{
 		dst[i] = src[i];

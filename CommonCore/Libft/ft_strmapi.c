@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 15:21:59 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 10:13:05 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/22 14:52:25 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/22 14:53:23 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+char	*ft_strmapi(char const *s, char(*f)(unsigned int, char))
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	return (c);
-}
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	char letter = 'l';
 	
-	printf("%c\n",ft_toupper(letter));
 }
-*/

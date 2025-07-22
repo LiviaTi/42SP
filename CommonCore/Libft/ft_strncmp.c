@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:04:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 17:03:24 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:07:21 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	c1 = (unsigned char *)s1;
 	c2 = (unsigned char *)s2;
 	i = 0;
-	if (len == 0)
+	if (n == 0)
 	{
 		return (0);
 	}
-	while (i < len)
+	while (i < n)
 	{
 		if (c1[i] != c2[i] || c1[i] == '\0' || c2[i] == '\0')
 		{
