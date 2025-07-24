@@ -6,11 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:52:25 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/22 14:53:23 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/24 12:02:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmapi(char const *s, char(*f)(unsigned int, char))
-{
-	
-}

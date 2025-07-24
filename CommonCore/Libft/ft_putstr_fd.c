@@ -6,12 +6,11 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:56:19 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/23 20:12:13 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:58:30 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -23,9 +22,10 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-	write(fd,"\n", 1);
+	write(fd, "\n", 1);
 }
 
+/*
 #include <stdio.h>
 #include <fcntl.h>
 int main(void)
@@ -41,3 +41,4 @@ int main(void)
 	close(fd);
 	return (0);
 }
+*/

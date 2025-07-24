@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:50:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/23 18:53:37 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/24 12:13:55 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_number_len(int number)
+size_t	ft_number_len(int number)
 {
 	size_t	number_len;
 
@@ -24,7 +24,7 @@ static size_t	ft_number_len(int number)
 		number /= 10;
 		number_len++;
 	}
-	return(number_len);
+	return (number_len);
 }
 
 char	*ft_itoa(int n)
