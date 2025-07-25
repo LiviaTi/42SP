@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:32:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 11:09:32 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 13:27:07 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str = ft_calloc((len + 1), sizeof(char));
 	if (!sub_str)
 		return (NULL);
-	ft_memcpy(sub_str, (s + start), sizeof(s));
+	ft_memcpy(sub_str, (s + start), len);
 	return (sub_str);
 }
 

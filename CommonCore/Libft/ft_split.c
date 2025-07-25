@@ -6,82 +6,78 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/23 14:45:43 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 13:44:37 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_count_word(char const *s, char c)
+static int	ft_count_words(const char *s, char c)
 {
-	size_t	in_word;
-	size_t	count_word;
+	int count;
+	int in_word;
 
+	count = 0;
 	in_word = 0;
-	count_word = 0;
-	while (*s != '\0')
+	while (*s)
 	{
 		if (*s != c && in_word == 0)
 		{
 			in_word = 1;
-			count_word++;
+			count++;
 		}
 		else if (*s == c)
-		{
 			in_word = 0;
-		}	
 		s++;
 	}
-	return( count_word);			
-}
-size_t	ft_word_len(const char *s, char c)
-{
-	size_t	word_len;
-
-	word_len = 0;
-	while (s[word_len] && s[word_len] != c)
-		word_len++;
-	return	(word_len);
+	return (count);
 }
 
-char **ft_split(char const *s, char c)
+static void	ft_free_words(char **words, int n)
 {
-	char **array_slip;
-	size_t	count_word;
-	size_t	i;
-	size_t	j;
-	size_t	word_len;
+	int i;
+
+	i = 0;
+	while (i < n)
+	{
+		free (words[i]);
+		i++;
+	}
+	free (words);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	int		i;
+	int		j;
+	int		words;
+	int		start;
 
 	i = 0;
 	j = 0;
-	word_len = 0;
-	count_word = ft_count_word(s, c);
-	**array_slip = malloc(count_word + 1) * sizeof(char *);
-	if (!array)
-		return(NULL);
-	while (i < count_word)
-	{
-		while(*s == c)
-			s++
-		word_len = ft_word_len(*s, c);
-		array_slip[i] = malloc(word_len + 1);
-		if(!array_slip)
-		{
-			while (j < i)
-				free(array_slip[j]);
-				j++
-			free(array_slip);
-			return (NULL);
-		}
-		strncpy(array[i], s, len);
-        array[i][word_len] = '\0';
-        s += word_len;
-        i++;
-		}
-		array[word_len] = NULL;
-		return (array_slip);
-		i++;
-	}
+    words = ft_count_words (s, c);
+    result = (char **)ft_calloc (words + 1, sizeof(char *));
+    if (!result)
+        return (NULL);
+    while (s[i] && j < words)
+    {
+        while (s[i] == c)
+            i++;
+        start = i;
+        while (s[i] && s[i] != c)
+            i++;
+        result[j] = ft_substr(s, start, i - start);
+        if (!result[j])
+        {
+            ft_free_words(result, j);
+            return (NULL);
+        }
+        j++;
+    }
+    result[j] = NULL;
+    return (result);
+}
 /*
 #include <stdio.h>
 int main(void)
@@ -104,4 +100,4 @@ int main(void)
 	
 	return 0;
 }
-	*/
+*/
