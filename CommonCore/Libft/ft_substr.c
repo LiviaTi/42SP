@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:32:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 12:49:00 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 11:09:32 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	char	*sub_str;
 	size_t	s_len;
-	size_t	available_mem_space;
+	size_t	i;
+	size_t	max_len;
+	char	*sub_str;
 
 	i = 0;
 	s_len = ft_strlen(s);
-	available_mem_space = s_len - start;
-	if (*s == '\0')
+	if (start > s_len)
+		return ((char *) malloc(1));
+	max_len = s_len - start;
+	if (len > max_len)
+		len = max_len;
+	sub_str = ft_calloc((len + 1), sizeof(char));
+	if (!sub_str)
 		return (NULL);
-	if (len > available_mem_space)
-		len = available_mem_space;
-	sub_str = (char *) malloc(len + 1);
-	while (!sub_str)
-	{
-		sub_str[i] = s[start + i];
-		i++;
-	}
-	sub_str[i] = '\0';
+	ft_memcpy(sub_str, (s + start), sizeof(s));
 	return (sub_str);
 }
 

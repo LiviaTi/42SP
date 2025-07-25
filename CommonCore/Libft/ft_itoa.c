@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:50:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/24 12:13:55 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/24 16:26:48 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ char	*ft_itoa(int n)
 	int				sign;
 	size_t			number_len;
 	char			*number_char;
-	size_t			i;
-	
+
 	number_len = 0;
-	i = 0;
 	number = 0;
 	sign = 0;
-	
 	if (n < 0)
 	{
 		number = (unsigned int)-n;
@@ -47,17 +44,17 @@ char	*ft_itoa(int n)
 	}
 	else
 	number = n;
-	number_len = ft_number_len(number);
-	number_char = malloc ( number_len + sign + 1);
-	if(!number_char)
+	number_len = ft_number_len (number);
+	number_char = malloc (number_len + sign + 1);
+	if (!number_char)
 		return (NULL);
 	while (number_len--)
 	{
 		number_char[number_len + sign] = (number % 10) + '0';
 		number /= 10;
-    }
+	}
 	number_char[number_len + sign] = '\0';
-	if(sign == 1)
+	if (sign == 1)
 		number_char[0] = '-';
 	return (number_char);
 }

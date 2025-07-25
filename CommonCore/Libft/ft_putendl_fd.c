@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:03:34 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/24 12:37:00 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:40:13 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-
+/*
 #include <stdio.h>
 #include <fcntl.h>
 int main(void)
@@ -40,4 +40,5 @@ int main(void)
 	close(fd);
 	return (0);
 }
+*/
 

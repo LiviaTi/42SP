@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:48:00 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 09:24:56 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 10:46:22 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 /*
 #include <stdio.h>
 int main (void)
-{ truncada).
+{
 	char src[] = "livia";
 	char dest[20];
 	int i;
@@ -46,7 +46,7 @@ int main (void)
     printf("src:  \"%s\"\n", src);
     printf("dest: \"%s\"\n", dest);
 
-    ft_memcpy(dest, src, 12);
+    ft_memcpy(dest, src, sizeof(src));
 
     printf("\nAfter ft_memcpy:\n");
     printf("src:  \"%s\"\n", src);
