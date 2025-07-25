@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:50:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/24 16:26:48 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:54:02 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ size_t	ft_number_len(int number)
 	return (number_len);
 }
 
+void	*ft_number_char(char *s, int sign, unsigned int number, size_t num_len)
+{
+	while (num_len--)
+	{
+		s[num_len + sign] = (number % 10) + '0';
+		number /= 10;
+	}
+	s[num_len + sign] = '\0';
+	if (sign == 1)
+		s[0] = '-';
+	return (s);
+}
+
 char	*ft_itoa(int n)
 {
 	unsigned int	number;
@@ -45,17 +58,10 @@ char	*ft_itoa(int n)
 	else
 	number = n;
 	number_len = ft_number_len (number);
-	number_char = malloc (number_len + sign + 1);
+	number_char = calloc ((number_len + sign + 1), sizeof(size_t));
 	if (!number_char)
 		return (NULL);
-	while (number_len--)
-	{
-		number_char[number_len + sign] = (number % 10) + '0';
-		number /= 10;
-	}
-	number_char[number_len + sign] = '\0';
-	if (sign == 1)
-		number_char[0] = '-';
+	ft_number_char (number_char, sign, number, number_len);
 	return (number_char);
 }
 
