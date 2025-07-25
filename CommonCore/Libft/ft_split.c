@@ -6,16 +6,16 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 13:44:37 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:25:02 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static size_t	ft_count_words(const char *s, char c)
 {
-	int count;
-	int in_word;
+	size_t	count;
+	size_t	in_word;
 
 	count = 0;
 	in_word = 0;
@@ -33,9 +33,9 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-static void	ft_free_words(char **words, int n)
+static void	ft_free_words(char **words, size_t n)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
@@ -46,37 +46,49 @@ static void	ft_free_words(char **words, int n)
 	free (words);
 }
 
+static char	**ft_array_words(char const *s, int words, char c, char **array)
+{
+	size_t	j;
+	size_t	start;
+	size_t	len;
+
+	j = 0;
+	start = 0;
+	len = 0;
+	while (*s && j < words)
+	{
+		while (*s == c)
+			s++;
+		start = i;
+		while (*s && s[i] != c)
+			s++;
+		array[j] = ft_substr (s, start, *s - start);
+		if (!array[j])
+		{
+			ft_free_words (array, j);
+			return (NULL);
+		}
+		j++;
+	}
+	array[j] = NULL;
+	return (array);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		i;
-	int		j;
-	int		words;
-	int		start;
+	char	**array_result;
+	size_t	i;
+	size_t	j;
+	size_t	words;
 
 	i = 0;
 	j = 0;
-    words = ft_count_words (s, c);
-    result = (char **)ft_calloc (words + 1, sizeof(char *));
-    if (!result)
-        return (NULL);
-    while (s[i] && j < words)
-    {
-        while (s[i] == c)
-            i++;
-        start = i;
-        while (s[i] && s[i] != c)
-            i++;
-        result[j] = ft_substr(s, start, i - start);
-        if (!result[j])
-        {
-            ft_free_words(result, j);
-            return (NULL);
-        }
-        j++;
-    }
-    result[j] = NULL;
-    return (result);
+	words = ft_count_words (s, c);
+	array_result = (char **)ft_calloc (words + 1, sizeof(char *));
+	if (!array_result)
+		return (NULL);
+	array_result = ft_array_words(s, words, c, array_result);
+	return (array_result);
 }
 /*
 #include <stdio.h>
@@ -96,8 +108,7 @@ int main(void)
         printf("Palavra %d: \"%s\"\n", i, result_split[i]);
         i++;
     }
-
-	
+	ft_free_words(result_split, i);
 	return 0;
 }
 */
