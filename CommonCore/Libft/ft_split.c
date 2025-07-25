@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 14:25:02 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:33:16 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ static void	ft_free_words(char **words, size_t n)
 
 static char	**ft_array_words(char const *s, int words, char c, char **array)
 {
+	size_t	i;
 	size_t	j;
 	size_t	start;
-	size_t	len;
 
+	i = 0;
 	j = 0;
 	start = 0;
-	len = 0;
-	while (*s && j < words)
+	while (s[i] && j < words)
 	{
-		while (*s == c)
-			s++;
+		while (s[i] == c)
+			i++;
 		start = i;
-		while (*s && s[i] != c)
-			s++;
-		array[j] = ft_substr (s, start, *s - start);
+		while (s[i] && s[i] != c)
+			i++;
+		array[j] = ft_substr (s, start, i - start);
 		if (!array[j])
 		{
 			ft_free_words (array, j);
@@ -105,7 +105,7 @@ int main(void)
 
 	while (result_split[i] != NULL)
     {
-        printf("Palavra %d: \"%s\"\n", i, result_split[i]);
+        printf("Word %d: \"%s\"\n", i, result_split[i]);
         i++;
     }
 	ft_free_words(result_split, i);
