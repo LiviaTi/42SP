@@ -6,11 +6,15 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 14:40:59 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:08:04 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char		**array_words(char const *s, int words, char c, char **array);
+static size_t	ft_count_words(const char *s, char c);
+static void		ft_free_words(char **words, size_t n);
 
 static size_t	ft_count_words(const char *s, char c)
 {
@@ -40,13 +44,13 @@ static void	ft_free_words(char **words, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		free (words[i]);
+		free(words[i]);
 		i++;
 	}
-	free (words);
+	free(words);
 }
 
-static char	**ft_array_words(char const *s, int words, char c, char **array)
+static char	**array_words(char const *s, int words, char c, char **array)
 {
 	int	i;
 	int	j;
@@ -62,10 +66,10 @@ static char	**ft_array_words(char const *s, int words, char c, char **array)
 		start = i;
 		while (s[i] && s[i] != c)
 			i++;
-		array[j] = ft_substr (s, start, i - start);
+		array[j] = ft_substr(s, start, i - start);
 		if (!array[j])
 		{
-			ft_free_words (array, j);
+			ft_free_words(array, j);
 			return (NULL);
 		}
 		j++;
@@ -83,11 +87,11 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	words = ft_count_words (s, c);
-	array_result = (char **)ft_calloc (words + 1, sizeof(char *));
+	words = ft_count_words(s, c);
+	array_result = (char **)ft_calloc(words + 1, sizeof(char *));
 	if (!array_result)
 		return (NULL);
-	array_result = ft_array_words(s, words, c, array_result);
+	array_result = array_words(s, words, c, array_result);
 	return (array_result);
 }
 

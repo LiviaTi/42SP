@@ -6,11 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:43:18 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 13:28:31 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 13:13:39 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_is_in_set(char c, const char *set);
 
 static int	ft_is_in_set(char c, const char *set)
 {

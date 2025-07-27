@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:48:00 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 10:46:22 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/25 17:52:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
+	if (!dest && !src)
+		return (NULL);
 	while (n--)
 	{
 		*d = *s;

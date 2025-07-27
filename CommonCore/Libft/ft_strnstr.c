@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 17:23:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 10:31:41 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:23:54 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	little_len;
 
 	little_len = ft_strlen(little);
+	if (little_len == 0)
+		return ((char *)big);
 	if (*little == '\0')
 		return ((char *)big);
 	if (little_len > len)
 		return (NULL);
 	while (*big && len >= little_len)
 	{
-		if (ft_strncmp (big, little, little_len) == 0)
+		if (ft_strncmp(big, little, little_len) == 0)
 			return ((char *)big);
 		big++;
 		len--;

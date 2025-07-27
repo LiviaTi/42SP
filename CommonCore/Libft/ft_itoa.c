@@ -6,13 +6,16 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:50:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 14:54:02 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:05:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_number_len(int number)
+static size_t	ft_number_len(int number);
+static void		*ft_num_char(char *s, int sign, unsigned int num, size_t len);
+
+static size_t	ft_number_len(int number)
 {
 	size_t	number_len;
 
@@ -27,14 +30,17 @@ size_t	ft_number_len(int number)
 	return (number_len);
 }
 
-void	*ft_number_char(char *s, int sign, unsigned int number, size_t num_len)
+static void	*ft_num_char(char *s, int sign, unsigned int num, size_t len)
 {
-	while (num_len--)
+	size_t	i;
+
+	i = len;
+	while (i--)
 	{
-		s[num_len + sign] = (number % 10) + '0';
-		number /= 10;
+		s[i + sign] = (num % 10) + '0';
+		num /= 10;
 	}
-	s[num_len + sign] = '\0';
+	s[len + sign] = '\0';
 	if (sign == 1)
 		s[0] = '-';
 	return (s);
@@ -50,18 +56,17 @@ char	*ft_itoa(int n)
 	number_len = 0;
 	number = 0;
 	sign = 0;
+	number = n;
 	if (n < 0)
 	{
 		number = (unsigned int)-n;
 		sign = 1;
 	}
-	else
-	number = n;
-	number_len = ft_number_len (number);
-	number_char = calloc ((number_len + sign + 1), sizeof(size_t));
+	number_len = ft_number_len(number);
+	number_char = ft_calloc((number_len + sign + 1), sizeof(char));
 	if (!number_char)
 		return (NULL);
-	ft_number_char (number_char, sign, number, number_len);
+	ft_num_char(number_char, sign, number, number_len);
 	return (number_char);
 }
 

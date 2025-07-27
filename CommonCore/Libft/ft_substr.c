@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:32:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 13:27:07 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 13:29:43 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	s_len = ft_strlen(s);
 	if (start > s_len)
-		return ((char *) malloc(1));
+		return (ft_strdup(""));
 	max_len = s_len - start;
 	if (len > max_len)
 		len = max_len;
 	sub_str = ft_calloc((len + 1), sizeof(char));
 	if (!sub_str)
 		return (NULL);
-	ft_memcpy(sub_str, (s + start), len);
+	sub_str = ft_memcpy(sub_str, (s + start), len);
+	sub_str[len] = '\0';
 	return (sub_str);
 }
 

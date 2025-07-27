@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:52:25 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 17:34:29 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:10:35 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	new_str = calloc(ft_strlen(s) + 1, sizeof(char));
+	new_str = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!new_str)
 		return (NULL);
 	while (s[i])
