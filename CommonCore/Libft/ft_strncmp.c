@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:04:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/24 16:36:32 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:57:06 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	const char str1[] = "livia";
-	const char str2[] = "lividih";
-	int result = 0;
-
-	result = ft_strncmp(str1, str2, 3);
-	if (result == 0)
-	{
-		printf("Even the size passed to the string is equal");
-	}
-	else
-	{
-		printf("Even the size passed to the string is not equal");
-	}
-}
-*/

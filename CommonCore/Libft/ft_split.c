@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:08:04 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:56:07 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,26 +94,3 @@ char	**ft_split(char const *s, char c)
 	array_result = array_words(s, words, c, array_result);
 	return (array_result);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	char str[] = "Ola, mundo, livia";
-	char separator = ',';
-	char **result_split;
-	int i = 0;
-	int j = 0;
-	
-	result_split = ft_split(str,separator);
-
-
-	while (result_split[i] != NULL)
-    {
-        printf("Word %d: \"%s\"\n", i, result_split[i]);
-        i++;
-    }
-	ft_free_words(result_split, i);
-	return 0;
-}
-*/

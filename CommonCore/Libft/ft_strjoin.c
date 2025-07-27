@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:41:11 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:09:11 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:56:34 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(str3 + s1_len, s2, s2_len);
 	return (str3);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-	char const str1[] = "livia";
-	char const str2[] = "Davi";
-	char *str3;
-	
-	str3 = ft_strjoin(str1,str2);
-	if (str3)
-    {
-		printf("\n%s\n", str3);
-		free(str3);
-	}
-	else
-	{
-		printf("\nError allocating memorry\n");
-	}
-	free(str3);
-	return (0);
-}
-*/

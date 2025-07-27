@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:45:53 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 16:59:35 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:56:13 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	const char *s = "livia";
-
-	char *p = ft_strchr(s, 'v');
-
-	printf("%p\n", (void *)p);
-    return 0;
-}
-*/

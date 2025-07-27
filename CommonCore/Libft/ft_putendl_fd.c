@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:03:34 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 17:48:11 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:55:16 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-
-/*
-#include <stdio.h>
-#include <fcntl.h>
-int main(void)
-{
-	char str[] = "Livia Ferreira";
-	int fd = open("test2.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd == -1)
-	{
-		printf("Error open the file");
-		return 1;
-	}
-	ft_putendl_fd(str, fd); 
-	close(fd);
-	return (0);
-}
-*/

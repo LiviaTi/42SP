@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 11:03:09 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 10:32:50 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:56:20 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,3 @@ char	*ft_strdup(const char *s)
 	}
 	return (ptr_dup);
 }
-/*char	*ft_strdup(const char *s)
-#include <stdio.h>
-
-int main(void)
-{
-	const char *original = "Hello, world!";
-	char *dup;
-
-	dup = ft_strdup(original);
-
-	if (dup == NULL)
-	{
-		printf("Memory allocation failed.\n");
-		return 1;
-	}
-
-	printf("Original string: %s\n", original);
-	printf("Copied string:   %s\n", dup);
-
-	free(dup);
-
-	return (0);
-}
-*/

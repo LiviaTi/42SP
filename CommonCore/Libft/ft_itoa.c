@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:50:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:05:59 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:54:26 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,3 @@ char	*ft_itoa(int n)
 	ft_num_char(number_char, sign, number, number_len);
 	return (number_char);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	int number =-123456;
-	char *number_char;
-
-	number_char = ft_itoa(number);
-
-	printf("%s",number_char);
-	free(number_char);
-	return (0);
-}
-*/

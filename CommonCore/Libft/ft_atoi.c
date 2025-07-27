@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 12:41:13 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/25 15:20:12 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:53:28 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (convert * sign);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-	char str[] = "1234";
-
-	printf("The number is: %d", ft_atoi(str));
-	return (0);
-}
-*/

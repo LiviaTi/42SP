@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 17:23:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:23:54 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:57:11 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-    const char *text = "Hello, world!";
-    const char *search = "world";
-    size_t len = 12;
-
-    char *result = ft_strnstr(text, search, len);
-    if (result)
-        printf("Found: %s\n", result);
-    else
-        printf("Not found\n");
-
-    return 0;
-}
-*/

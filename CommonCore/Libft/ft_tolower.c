@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 10:11:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:57:41 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,3 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
-/*
-#include <stdio.h>
-int main (void)
-{
-	char letter = 'Z';
-
-	letter = ft_tolower(letter);
-	printf("%c \n", letter);
-}
-*/

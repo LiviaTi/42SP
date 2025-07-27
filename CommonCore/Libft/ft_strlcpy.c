@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:16:49 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/21 09:15:20 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:56:48 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[copy_len] = '\0';
 	return (src_len);
 }
-
-//The function strlcpy was created to copy with security 
-//and at the same time allow the programmer to know if 
-//the copy was complete or truncated.
-/*
-#include <stdio.h>
-int main(void)
-{
-    char dest[10];
-    const char *original = "Long exemple";
-
-    size_t result = ft_strlcpy(dest, original, sizeof(dest));
-
-    printf("Destine: \"%s\"\n", dest);
-    printf("Original size: %zu\n", result);
-
-    if (result >= sizeof(dest))
-        printf("The string was truncated.\n");
-    else
-        printf("The string was copied in its entirety.\n");
-
-    return 0;
-}
-*/

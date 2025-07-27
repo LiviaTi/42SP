@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 19:58:30 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 17:12:45 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:54:42 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-    char str1[] = "HelloWorld";
-    char str2[] = "HelloWorld";
-
-    int result = ft_memcmp(str1, str2, 4);
-
-    printf("ft_memcmp result:  %d\n", result);
-
-
-    if (result == 0)
-        printf("Strings are equal in the first.\n");
-    else if (result < 0)
-        printf("str1 is less than str2.\n");
-    else
-        printf("str1 is greater than str2.\n");
-
-    return 0;
-}
-*/

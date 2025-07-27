@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:04:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/20 17:21:53 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:54:57 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-    char src1[]  = "Thiago";
-    char dest1[] = "Livia";
-
-
-    ft_memmove(dest1, src1, 3);
-
-    printf("Sem sobreposição:\n");
-    printf("  src1  = \"%s\"\n", src1);
-    printf("  dest1 = \"%s\"\n\n", dest1);
-
-    return 0;
-}
-*/
