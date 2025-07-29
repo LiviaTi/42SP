@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:03:34 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:55:16 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:17:04 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	ft_putendl_fd(char *s, int fd)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
-		i++;
-	}
+	if (!s)
+		return ;
+	while (s[i])
+		write(fd, &s[i++], 1);
 	write(fd, "\n", 1);
 }
