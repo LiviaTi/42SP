@@ -1,12 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 17:04:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 17:04:34 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/28 14:46:11 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/28 15:13:03 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst && lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
