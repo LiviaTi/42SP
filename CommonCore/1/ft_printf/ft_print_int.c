@@ -6,14 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:30:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 14:35:07 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:10:57 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-void	ft_print_char(char c);
+int	ft_print_char(char c);
 
 int	ft_print_int(int num)
 {
@@ -26,13 +25,9 @@ int	ft_print_int(int num)
 	{
 		ft_print_char('-');
 		num_u = -num;
-		count++;
 	}
-	if (num_u >= 0 || num_u <= 9)
-	{
-		ft_print_int(num_u / 10);
-		count++;
-	}
-	ft_print_char(num_u % 10 + '0');
+	if (num_u >= 10)
+		count += ft_print_int(num_u / 10);
+	count += ft_print_char(num_u % 10 + '0');
 	return (count);
 }

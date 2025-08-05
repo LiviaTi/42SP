@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 12:01:03 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 14:19:45 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:05:16 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_char(char c)
+int	ft_print_char(char c)
 {
 	write(1, &c, 1);
 	return (1);

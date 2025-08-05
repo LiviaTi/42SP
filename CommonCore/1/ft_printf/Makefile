@@ -6,48 +6,32 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/30 01:43:39 by liferrei          #+#    #+#              #
-#    Updated: 2025/07/30 01:44:03 by liferrei         ###   ########.fr        #
+#    Updated: 2025/08/05 16:59:10 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
-SRC_DIR = src
-INC_DIR = include
-LIBFT_DIR = libft
+SRC = \
+	ft_print_char.c ft_print_str.c ft_print_int.c \
+	ft_print_uint.c ft_print_hex.c ft_print_percent.c \
+	ft_print_ptr.c ft_print_format.c ft_printf.c
 
-SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:.c=.o)
-OBJ_NAME = $(notdir $(OBJ))
-OBJ_DIR = obj
-OBJS = $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR) -I$(LIBFT_DIR)
-
-LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS)
-	ar rcs $@ $(OBJS) $(LIBFT)
-
-$(OBJ_DIR):
-	mkdir -p $@
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
+$(NAME): $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ_DIR)
-	make -C $(LIBFT_DIR) clean
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
