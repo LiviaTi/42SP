@@ -6,9 +6,14 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:35:03 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/30 17:35:29 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/05 14:22:57 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_print_percent(void)
+{
+	write(1, '%', 1);
+	return (1);
+}
