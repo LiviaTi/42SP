@@ -6,20 +6,18 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:07:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/07 12:40:02 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 16:48:42 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void ft_putstr_fd(char *s, int fd)
+size_t	ft_strlen_gnl(char *s)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while(s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
