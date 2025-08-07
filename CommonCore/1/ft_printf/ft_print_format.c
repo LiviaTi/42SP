@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:32:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 16:56:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:38:44 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	ft_print_format(char format, va_list args)
 	else if (format == 'u')
 		return (ft_print_uint(va_arg(args, unsigned int)));
 	else if (format == 'x')
-		return (ft_print_hex(va_arg(args, unsigned int), 1));
+		return (ft_print_hex(va_arg(args, unsigned int), 0));
 	else if (format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), 2));
+		return (ft_print_hex(va_arg(args, unsigned int), 1));
 	else if (format == 'p')
 		return (ft_print_ptr(va_arg(args, unsigned long)));
 	else if (format == '%')

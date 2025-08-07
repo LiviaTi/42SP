@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:32:18 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/07 11:22:13 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:41:03 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_print_hex(unsigned int num, int uppercase)
+int	ft_print_hex(unsigned long num, int uppercase)
 {
 	char	*base;
 	char	c;
@@ -20,9 +20,9 @@ int	ft_print_hex(unsigned int num, int uppercase)
 
 	count = 0;
 	if (uppercase == 1)
-		base = "0123456789abcdef";
-	if (uppercase == 2)
 		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
 	if (num >= 16)
 		count += ft_print_hex(num / 16, uppercase);
 	c = base[num % 16];

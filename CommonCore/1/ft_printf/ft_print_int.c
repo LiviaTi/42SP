@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:30:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:10:57 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:32:27 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_print_int(int num)
 	num_u = num;
 	if (num < 0)
 	{
-		ft_print_char('-');
+		count += ft_print_char('-');
 		num_u = -num;
 	}
 	if (num_u >= 10)
