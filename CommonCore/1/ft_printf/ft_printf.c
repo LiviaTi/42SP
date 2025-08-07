@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:27:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:04:52 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:23:02 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-
+/*
 int main(void)
 {
 
@@ -44,3 +44,4 @@ int main(void)
 
 	return (0);
 }
+*/

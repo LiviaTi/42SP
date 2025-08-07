@@ -6,14 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:31:24 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:14:44 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:16:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_print_char(char c);
-
 
 int	ft_print_uint(unsigned int num)
 {

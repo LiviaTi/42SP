@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:28:01 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/05 16:48:23 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:16:43 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	ft_print_uint(unsigned int num);
 int	ft_print_hex(unsigned int num, int uppercase);
 int	ft_print_ptr(unsigned long ptr);
 int	ft_print_percent(void);
-
 
 #endif
