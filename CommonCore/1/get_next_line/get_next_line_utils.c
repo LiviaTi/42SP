@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:07:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/08 13:20:23 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/08 13:39:48 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,24 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	return (s3);
 }
 
-char	*ft_substr_gnl(const char *s)
+char	*ft_substr_gnl(char *s, unsigned int start, int len)
 {
-	int		start;
-	int		end;
 	char	*substr;
-	int		i;
+	size_t	i;
+	size_t	s_len;
+	size_t	max_len;
 
-	start = 0;
-	end = 0;
 	i = 0;
-	end = ft_strchr_gnl(s, '\n');
-	substr = malloc((end - start) * sizeof(char));
+	s_len = ft_strlen_gnl(s);
+	if (!s || start >= s_len)
+		return (NULL);
+	max_len = s_len - start;
+	if (len > max_len)
+		len = max_len;
+	substr = malloc((len + 1) * sizeof(char));
 	if (!substr)
 		return (NULL);
-	while (substr[i] != '\0' && i < end)
+	while (substr[start + i] != '\0' && i < len)
 	{
 		substr[i] = s[start];
 		i++;
