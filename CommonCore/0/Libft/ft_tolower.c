@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 15:03:34 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/29 20:17:04 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 15:37:42 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/29 11:27:50 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_tolower(int c)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-		write(fd, &s[i++], 1);
-	write(fd, "\n", 1);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

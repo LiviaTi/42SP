@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:48:42 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:56:07 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:52:27 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ char	**ft_split(char const *s, char c)
 	char	**array_result;
 	size_t	i;
 	size_t	j;
-	size_t	words;
+	size_t	count_words;
 
 	i = 0;
 	j = 0;
-	words = ft_count_words(s, c);
-	array_result = (char **)ft_calloc(words + 1, sizeof(char *));
+	count_words = ft_count_words(s, c);
+	array_result = (char **)ft_calloc(count_words + 1, sizeof(char *));
 	if (!array_result)
 		return (NULL);
-	array_result = array_words(s, words, c, array_result);
+	array_result = array_words(s, count_words, c, array_result);
 	return (array_result);
 }

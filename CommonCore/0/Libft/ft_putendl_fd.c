@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 12:27:35 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:54:08 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/22 15:03:34 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/29 16:43:44 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int a)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	return ((a >= '0' && a <= '9'));
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+		write(fd, &s[i++], 1);
+	write(fd, "\n", 1);
 }

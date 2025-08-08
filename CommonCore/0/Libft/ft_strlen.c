@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 13:41:11 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:56:34 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/29 10:17:33 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlen(const char *s)
 {
-	char	*str3;
-	size_t	s1_len;
-	size_t	s2_len;
-	size_t	i;
-	size_t	j;
+	size_t	len;
 
-	i = 0;
-	j = 0;
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	str3 = ft_calloc((s1_len + s2_len + 1), sizeof(char));
-	if (!str3)
-		return (NULL);
-	ft_memcpy(str3, s1, s1_len);
-	ft_memcpy(str3 + s1_len, s2, s2_len);
-	return (str3);
+	len = 0;
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
 }

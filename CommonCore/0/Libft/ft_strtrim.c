@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:43:18 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:24 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:46:56 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	char	*str_no_character;
 
+	start = 0;
+	end = ft_strlen(s1);
 	if (!s1 || !set)
 		return (NULL);
-	start = 0;
 	while (s1[start] && ft_is_in_set(s1[start], set))
 		start++;
-	end = ft_strlen(s1);
 	while (end > start && ft_is_in_set(s1[end - 1], set))
 		end--;
 	str_no_character = ft_substr(s1, start, end - start);
