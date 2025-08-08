@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:08:44 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/08 14:00:25 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/08 14:12:08 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,41 @@ char *ft_read_and_fill(int fd, char *stash)
 	char	buffer[BUFFER_SIZE + 1];
 	size_t	bytes;
 	
+	bytes = 1;
+	while (!ft_strchr_gnl(stash, '\n')  && bytes > 0)
+	{
+		if (bytes < 0)
+			return (free(stash), NULL);
+		buffer[bytes] = '\0';
+		stash = ft_strjoin_gnl(stash, buffer);
+	}
+	return (stash);
 }
 
 char	ft_extract_line(char *stash)
 {
-	size_t len;
+	size_t	len;
+	char	*line;
 
 	len = 0;
 	if (!stash || !stash[0])
 		return (NULL);
 	while (stash[len] && stash[len] != '\n')
 		len++;
-	
-	
+	if (stash[len] == '\n')
+		len++;
+	line = ft_substr_gnl(stash, 0, len);
+	return(line);
 }
 
 char	ft_update_stash(char *stash)
 {
+	size_t	len;
+	char	*update_stash;
+
+	len = 0;
+	while (stash[len] && stash[len] != '\n')
+		len++;
 	
 }
 
