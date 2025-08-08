@@ -6,19 +6,19 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:08:44 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/08 14:12:08 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/08 17:54:40 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_read_and_fill(int fd, char *stash)
+static char	*ft_read_and_fill(int fd, char *stash)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	size_t	bytes;
-	
+
 	bytes = 1;
-	while (!ft_strchr_gnl(stash, '\n')  && bytes > 0)
+	while (!ft_strchr_gnl(stash, '\n') && bytes > 0)
 	{
 		if (bytes < 0)
 			return (free(stash), NULL);
@@ -28,7 +28,7 @@ char *ft_read_and_fill(int fd, char *stash)
 	return (stash);
 }
 
-char	ft_extract_line(char *stash)
+static char	ft_extract_line(char *stash)
 {
 	size_t	len;
 	char	*line;
@@ -41,10 +41,10 @@ char	ft_extract_line(char *stash)
 	if (stash[len] == '\n')
 		len++;
 	line = ft_substr_gnl(stash, 0, len);
-	return(line);
+	return (line);
 }
 
-char	ft_update_stash(char *stash)
+static char	ft_update_stash(char *stash)
 {
 	size_t	len;
 	char	*update_stash;
@@ -52,16 +52,17 @@ char	ft_update_stash(char *stash)
 	len = 0;
 	while (stash[len] && stash[len] != '\n')
 		len++;
-	
+	update_stash = ft_substr_gnl(stash[len], 0, len);
+	return (update_stash);
 }
 
 char	*get_next_line(int fd)
 {
-	static char *stash;
+	static char	*stash;
 	char		*line;
-	
+
 	stash = NULL;
-	if(fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = ft_read_and_fill(fd, stash);
 	if (!stash)

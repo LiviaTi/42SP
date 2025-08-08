@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:07:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/08 14:04:51 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/08 18:08:00 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ char	*ft_strchr_gnl(const char *s, int c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
-			return ((char *)s[i]);
+			return ((char *)&s[i]);
 	}
 	if (s[i] == '\0')
-		return ((char *)s[i]);
+		return ((char *)&s[i]);
 	return (NULL);
 }
 
