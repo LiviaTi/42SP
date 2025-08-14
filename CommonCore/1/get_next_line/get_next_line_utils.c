@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:07:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/14 10:57:33 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/14 13:04:39 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 size_t	ft_strlen_gnl(const char *s)
 {
 	size_t	len;
-
+	
 	len = 0;
+	if (!s)
+		return (0);
 	while (s[len] != '\0')
 		len++;
 	return (len);
@@ -27,6 +29,8 @@ char	*ft_strchr_gnl(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
@@ -46,6 +50,8 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	int		i;
 	int		j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	s1_len = ft_strlen_gnl(s1);
 	s2_len = ft_strlen_gnl(s2);
 	i = 0;
@@ -54,10 +60,7 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 	if (!s3)
 		return (NULL);
 	while (s1[i] != '\0')
-	{
-		s3[i] = s1[i];
-		i++;
-	}
+		s3[i++] = s1[i++];
 	while (s2[j] != '\0')
 	{
 		s3[i + j] = s2[j];
@@ -75,18 +78,20 @@ char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 	size_t	max_len;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen_gnl(s);
-	if (!s || start >= s_len)
-		return ("");
+	if (start >= s_len)
+		return (NULL);
 	max_len = s_len - start;
 	if (len > max_len)
 		len = max_len;
 	substr = malloc(len + 1);
 	if (!substr)
 		return (NULL);
-	while (substr[start + i] != '\0' && i < len)
+	while ( i < len && s[start + i] != '\0')
 	{
-		substr[i] = s[start];
+		substr[i] = s[start + i];
 		i++;
 	}
 	substr[i] = '\0';
