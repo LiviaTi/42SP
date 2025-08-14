@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/29 10:17:33 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/14 12:54:55 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
+	if (!s)
+		return (NULL);
 	while (s[len] != '\0')
 	{
 		len++;

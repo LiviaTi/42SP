@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/14 12:55:23 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strrchr(const char *s, int c)
 	const char	*last;
 
 	last = NULL;
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if (*s == (char)c)
