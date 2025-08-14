@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:08:44 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/08 19:46:52 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/08/14 11:14:22 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_read_and_fill(int fd, char *stash)
+char	*ft_read_and_fill(int fd, char *stash)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	size_t	bytes;
@@ -28,10 +28,10 @@ static char	*ft_read_and_fill(int fd, char *stash)
 	return (stash);
 }
 
-static char	ft_extract_line(char *stash)
+char	*ft_extract_line(char *stash)
 {
-	size_t	len;
-	char	*line;
+	size_t		len;
+	char		*line;
 
 	len = 0;
 	if (!stash || !stash[0])
@@ -44,22 +44,22 @@ static char	ft_extract_line(char *stash)
 	return (line);
 }
 
-static char	ft_update_stash(char *stash)
+char	*ft_update_stash(char *stash)
 {
-	size_t	len;
-	char	*update_stash;
+	size_t		len;
+	char		*update_stash;
 
 	len = 0;
 	while (stash[len] && stash[len] != '\n')
 		len++;
-	update_stash = ft_substr_gnl(stash[len], 0, len);
+	update_stash = ft_substr_gnl(stash, 0, len);
 	return (update_stash);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
-	char		*line;
+	char	*stash;
+	char	*line;
 
 	stash = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -71,6 +71,7 @@ char	*get_next_line(int fd)
 		stash = ft_update_stash(stash);
 	return (line);
 }
+
 /*
 #include <fcntl.h>   
 #include <stdio.h>
