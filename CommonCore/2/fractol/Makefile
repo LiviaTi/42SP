@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/05 12:00:51 by liferrei         ###   ########.fr        #
+#    Updated: 2025/09/05 12:17:29 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ MLX = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 INC = -I$(MLX_DIR)
 
 MANDATORY_SRC = \
-	main.c ft_draw_julia.c ft_draw_mandelbrot.c
+	main.c ft_draw_julia.c ft_draw_mandelbrot.c \
+	ft_get_color.c ft_init_fractol.c ft_put_pixel.c
 	
 FT_PRINTF_SRC = $(wildcard ft_printf/*.c)
 

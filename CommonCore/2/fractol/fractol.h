@@ -6,45 +6,44 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/05 12:13:20 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:16:48 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
-#define FRACTOL_H
+# define FRACTOL_H
 
-#include <stdlib.h>
-#include <math.h>
+# include <stdlib.h>
+# include <math.h>
 
-#include "mlx/mlx.h"
-#include "ft_printf/ft_printf.h"
+# include "mlx/mlx.h"
+# include "ft_printf/ft_printf.h"
 
-#define WIDTH 800
-#define HEIGHT 600
-#define MAX_ITER 300
+# define WIDTH 800
+# define HEIGHT 600
+# define MAX_ITER 300
 
 typedef struct s_complex
 {
-    double real;
-    double imag;
-} t_complex;
+	double	real;
+	double	imag;
+}			t_complex;
 
 typedef struct s_fractol
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_ptr;
-	char	*img_data;
-	int		bpp;
-	int		size_line;
-	int		endian;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	char		*img_data;
+	int			bpp;
+	int			size_line;
+	int			endian;
 
 	t_complex	c;
 	t_complex	z;
 	int			max_iter;
 	int			fractal_type;
-} t_fractol;
-
+}				t_fractol;
 
 int		main(int argc, char **argv);
 void	ft_draw_julia(t_fractol *f);
