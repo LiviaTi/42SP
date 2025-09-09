@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 17:19:30 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 18:50:20 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ typedef struct s_fractol
 	void		*img_ptr;
 	char		*img_data;
 	int			bpp;
-	int			size_line;
-	int			endian;
+	int			l_size;
+	int			end;
 
 	t_complex	c;
 	t_complex	z;

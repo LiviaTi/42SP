@@ -6,36 +6,31 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 11:51:40 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 15:26:34 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 18:51:08 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void ft_init_fractol(t_fractol *fractol)
+void	ft_init_fractol(t_fractol *f)
 {
-	fractol->mlx_ptr = mlx_init();
-	if (!fractol->mlx_ptr)
+	f->mlx_ptr = mlx_init();
+	if (!f->mlx_ptr)
 		exit(1);
-
-	fractol->win_ptr = mlx_new_window(fractol->mlx_ptr, WIDTH, HEIGHT, "fractol");
-	if (!fractol->win_ptr)
+	f->win_ptr = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, "fractol");
+	if (!f->win_ptr)
 		exit(1);
-	fractol->img_ptr = mlx_new_image(fractol->mlx_ptr, WIDTH, HEIGHT);
-	if (!fractol->img_ptr)
+	f->img_ptr = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
+	if (!f->img_ptr)
 	{
-		mlx_destroy_window(fractol->mlx_ptr, fractol->win_ptr);
+		mlx_destroy_window(f->mlx_ptr, f->win_ptr);
 		exit(1);
 	}
-	fractol->img_data = mlx_get_data_addr(fractol->win_ptr, 
-											&fractol->bpp, 
-											&fractol->size_line,
-											&fractol->endian);
-	fractol->max_iter = MAX_ITER;
-	fractol->zoom = 1.0;
-	fractol->offset_x = 0.0;
-	fractol->offset_y = 0.0;
-	
-	fractol->z.real = 0.0;
-	fractol->z.imag = 0.0;
+	f->img_data = mlx_get_data_addr(f->win_ptr, &f->bpp, &f->l_size, &f->end);
+	f->max_iter = MAX_ITER;
+	f->zoom = 1.0;
+	f->offset_x = 0.0;
+	f->offset_y = 0.0;
+	f->z.real = 0.0;
+	f->z.imag = 0.0;
 }

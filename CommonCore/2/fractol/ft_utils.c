@@ -6,45 +6,48 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 17:44:01 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/06 18:12:04 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 18:56:08 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-size_t	ft_strlen(char str)
+void	ft_pixel_put(t_fractol *fractol, int x, int y, int color)
 {
-	size_t count;
-	
-	count = 0;
-	while (str != "\0")
-	{
-		str++;
-		count++;
-	}
-	return (count);
+	char	*dst;
+
+	dst = fractol->img_data + (y * fractol->l_size + x * \
+			(fractol->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
-char	*ft_str_tolower(char *str)
+static int	ft_create_trgb(int t, int r, int g, int b)
 {
-	size_t	str_len;
-	char	*fractol;
-	int		i;
-
-	i = 0;
-	str_len = ft_strlen(str);
-	fractol = malloc(str_len + 1);
-	while (str[i] != "\0")
-	{
-		if (str >= 65 && str <= 90)
-		fractol[i] = str[i] + 32;
-		i ++;
-	}
-	fractol[i]= "\0";
-	return (fractol);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-int	ft_isdigit(int c)
+int	ft_color(int iterations, int max_iter)
 {
-	return ((c >= '0' && c <= '9'));
+	int	r;
+	int	g;
+	int	b;
+
+	if (iterations == max_iter)
+		return (0x000000);
+	r = (iterations * 9) % 256;
+	g = (iterations * 15) % 256;
+	b = (iterations * 20) % 256;
+	return (create_trgb(0, r, g, b));
+}
+
+double	ft_map_x_to_real(int x, t_fractol *fractol)
+{
+	return (fractol->offset_x + ((double)x / WIDTH - 0.5) * 4.0 \
+			* fractol->zoom);
+}
+
+double	ft_map_y_to_imag(int y, t_fractol *fractol)
+{
+	return (fractol->offset_y + (0.5 - (double)y / HEIGHT) * 4.0 \
+			* fractol->zoom);
 }
