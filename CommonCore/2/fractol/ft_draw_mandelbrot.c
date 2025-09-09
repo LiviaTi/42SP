@@ -6,18 +6,40 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:08:35 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 18:10:17 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 18:23:34 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static int	ft_calculate_iter(t_complex c, int max_iter)
+{
+	t_complex	z;
+	double		z_temp_real;
+	int			iter;
+
+	z.real = 0.0;
+	z.imag = 0.0;
+	iter = 0;
+	while (iter < max_iter)
+	{
+		z_temp_real = z.real * z.real - z.imag * z.imag + c.real;
+		z.imag = 2.0 * z.real * z.imag + c.imag;
+		z.real = z_temp_real;
+		if (z.real * z.real + z.imag * z.imag > 4.0)
+			break ;
+		iter++;
+	}
+	return (iter);
+}
+
 void	ft_ft_draw_mandelbrot(t_fractol *fractol)
 {
 	int			x_pixel;
 	int			y_pixel;
-	t_complex	num_complex;
+	t_complex	c;
 	int			iter;
+	int			color;
 
 	y_pixel = 0;
 	while (y_pixel < HEIGHT)
@@ -25,12 +47,11 @@ void	ft_ft_draw_mandelbrot(t_fractol *fractol)
 		x_pixel = 0;
 		while (x_pixel < WIDTH)
 		{
-			num_complex.real = map_x_to_real(x_pixel, fractol);
-			num_complex.imag = map_y_to_imag(y_pixel, fractol);
-			iter = ft_draw_mandelbrot_calulate_iterations(c, fractol->max_iter);
-			my_mlx_pixel_put(fractol, x_pixel, y_pixel, ft_color(iter, fractol->max_iter));
-			
+			c.real = ft_map_x_to_real(x_pixel, fractol);
+			c.imag = ft_map_y_to_imag(y_pixel, fractol);
+			iter = ft_calulate_iter(c, fractol->max_iter);
+			color = ft_color(iter, fractol->max_iter);
+			my_mlx_pixel_put(fractol, x_pixel, y_pixel, color);
 		}
-	}
-	
+	}	
 }
