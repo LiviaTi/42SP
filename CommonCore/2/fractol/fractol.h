@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 10:30:59 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 14:19:33 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define WIDTH 800
 # define HEIGHT 600
 # define MAX_ITER 300
+# define MANDELBROT_TYPE 0
+# define JULIA_TYPE      1
 
 typedef struct s_complex
 {
