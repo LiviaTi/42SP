@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 16:19:57 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:19:30 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <math.h>
 
 # include "mlx/mlx.h"
-# include "ft_printf/ft_printf.h"
+# include "libft/ft_printf/ft_printf.h"
+# include "libft/libft.h"
 
 // Window and image dimensions
 # define WIDTH 800
@@ -37,6 +38,7 @@
 # define KEY_UP				65362
 # define KEY_DOWN			65364
 
+// Mouse button codes for scroll
 # define MOUSE_SCROLL_UP	4
 # define MOUSE_SCROLL_DOWN	5
 
@@ -46,9 +48,7 @@ typedef struct s_complex
 	double	imag;
 }			t_complex;
 
-
-
-
+// Main structure for MiniLibX and fractal parameters 
 typedef struct s_fractol
 {
 	void		*mlx_ptr;
