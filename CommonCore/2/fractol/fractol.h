@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 14:19:33 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:24:28 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ typedef struct s_fractol
 	t_complex	z;
 	int			max_iter;
 	int			fractal_type;
+	
+	double		zoom;
+	double		offset_x;
+	double		offset_y;
 }				t_fractol;
 
 int		main(void);
