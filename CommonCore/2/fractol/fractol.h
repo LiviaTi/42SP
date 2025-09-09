@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/05 12:16:48 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 10:30:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ typedef struct s_fractol
 	int			fractal_type;
 }				t_fractol;
 
-int		main(int argc, char **argv);
+int		main(void);
 void	ft_draw_julia(t_fractol *f);
 void	ft_draw_mandelbrot(t_fractol *f);
 void	ft_put_pixel(t_fractol *f, int x, int y, int color);
 int		ft_get_color(int iter, int max_iter);
 void	ft_init_fractol(t_fractol *f, int fractal_type);
+void	ft_is_valid(int argc, char *argv[]);
+char	*ft_str_tolower(char *str);
+int		ft_isdigit(int c);
 
 #endif
