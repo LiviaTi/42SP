@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:14:29 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 17:54:19 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:57:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int ft_render_frame(t_fractol *fractol)
 		ft_draw_mandelbrot(fractol);
 	else if (fractol->fractal_type == JULIA_TYPE)
 		ft_draw_julia(fractol);
-	mlx_put_image_to_window(fractol->mlx_ptr, fractol->win_ptr, 0, 0);
+	mlx_put_image_to_window(fractol->mlx_ptr, fractol->win_ptr, fractol->img_ptr, 0, 0);
 	return (0);
 }
