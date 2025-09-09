@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/22 14:55:12 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/29 16:13:56 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	const char	*last;
-
-	last = NULL;
-	while (*s)
-	{
-		if (*s == (char)c)
-			last = s;
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	write(fd, &c, 1);
 }

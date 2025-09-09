@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:01:12 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/29 10:17:33 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/29 20:27:45 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/07 11:23:02 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printf(const char *format, ...)
 {
-	size_t	len;
+	int		len;
+	int		i;
+	va_list	args;
 
+	i = 0;
 	len = 0;
-	while (s[len] != '\0')
+	va_start(args, format);
+	while (format[i])
 	{
-		len++;
+		if (format[i] == '%' && format[i + 1])
+		{
+			i++;
+			len += ft_print_format(format[i], args);
+		}
+		else
+			len += write(1, &format[i], 1);
+		i++;
 	}
+	va_end(args);
 	return (len);
 }
+
+/*
+int main(void)
+{
+
+	ft_printf("Hello, %s","I am expert in programation");
+
+	return (0);
+}
+*/

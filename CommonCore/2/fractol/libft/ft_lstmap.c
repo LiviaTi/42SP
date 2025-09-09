@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/29 09:22:27 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/29 09:33:26 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	const char	*last;
+	t_list	*new_list;
+	t_list	*new_node;
 
-	last = NULL;
-	while (*s)
+	new_list = NULL;
+	while (lst && f)
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	return (new_list);
 }

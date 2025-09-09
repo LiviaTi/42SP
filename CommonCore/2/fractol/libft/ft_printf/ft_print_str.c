@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/30 17:30:01 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/07 11:30:55 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_print_str(char *s)
 {
-	const char	*last;
+	int	count;
 
-	last = NULL;
+	count = 0;
+	if (!s)
+		return (write(1, "(null)", 6));
 	while (*s)
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		count++;
+		write(1, s++, 1);
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	return (count);
 }

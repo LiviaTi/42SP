@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 12:09:06 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/19 11:37:38 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/29 20:28:01 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/07 11:41:15 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# include <stdlib.h>
-# include <fcntl.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+int	ft_printf(const char *format, ...);
+int	ft_print_format(char format, va_list args);
+int	ft_print_char(char c);
+int	ft_print_str(char *s);
+int	ft_print_int(int num);
+int	ft_print_uint(unsigned int num);
+int	ft_print_hex(unsigned long num, int uppercase);
+int	ft_print_ptr(unsigned long ptr);
+int	ft_print_percent(void);
 
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(const char *s, int c);
-char		*ft_substr(const char *s, unsigned int start, size_t len);
-char		*ft_strjoin(const char *s1, const char *s2);
-char		*ft_strdup(const char *s);
-char		*get_next_line(int fd);
 #endif

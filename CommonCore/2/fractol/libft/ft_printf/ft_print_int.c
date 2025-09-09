@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/30 17:30:33 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/07 11:32:27 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_print_char(char c);
+
+int	ft_print_int(int num)
 {
-	const char	*last;
+	unsigned int	num_u;
+	int				count;
 
-	last = NULL;
-	while (*s)
+	count = 0;
+	num_u = num;
+	if (num < 0)
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		count += ft_print_char('-');
+		num_u = -num;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	if (num_u >= 10)
+		count += ft_print_int(num_u / 10);
+	count += ft_print_char(num_u % 10 + '0');
+	return (count);
 }

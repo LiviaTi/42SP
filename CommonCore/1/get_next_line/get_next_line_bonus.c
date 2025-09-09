@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 12:08:44 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/20 10:23:42 by liferrei         ###   ########.fr       */
+/*   Created: 2025/08/19 11:36:08 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/20 10:23:55 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-static char	*ft_read_and_fill(int fd, char *tmp, char *remainder)
+static char	*ft_read_and_fill(int fd, char *chunk, char *remainder)
 {
 	int		bytes_read;
 	char	*old_remainder;
 
-	bytes_read = 1;
 	if (!remainder)
 		remainder = ft_strdup("");
+	bytes_read = 1;
 	while (!ft_strchr(remainder, '\n') && bytes_read > 0)
 	{
-		bytes_read = read(fd, tmp, BUFFER_SIZE);
+		bytes_read = read(fd, chunk, BUFFER_SIZE);
 		if (bytes_read < 0)
 		{
 			free(remainder);
 			return (NULL);
 		}
-		tmp[bytes_read] = '\0';
+		chunk[bytes_read] = '\0';
 		old_remainder = remainder;
-		remainder = ft_strjoin(remainder, tmp);
+		remainder = ft_strjoin(remainder, chunk);
 		free(old_remainder);
 	}
 	return (remainder);
@@ -41,9 +41,9 @@ static char	*ft_extract_line(char *remainder)
 	int		i;
 	char	*line;
 
-	i = 0;
 	if (!remainder || !remainder[0])
 		return (NULL);
+	i = 0;
 	while (remainder[i] && remainder[i] != '\n')
 		i++;
 	if (remainder[i] == '\n')
@@ -58,9 +58,9 @@ static char	*ft_update_stash(char *remainder)
 	int		i;
 	char	*new_remainder;
 
-	i = 0;
 	if (!remainder)
 		return (NULL);
+	i = 0;
 	while (remainder[i] && remainder[i] != '\n')
 		i++;
 	if (!remainder[i])
@@ -75,7 +75,7 @@ static char	*ft_update_stash(char *remainder)
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
+	static char	*remainder[1024];
 	char		*line;
 	char		*chunk;
 
@@ -84,11 +84,11 @@ char	*get_next_line(int fd)
 	chunk = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!chunk)
 		return (NULL);
-	remainder = ft_read_and_fill(fd, chunk, remainder);
+	remainder[fd] = ft_read_and_fill(fd, chunk, remainder[fd]);
 	free(chunk);
-	if (!remainder)
+	if (!remainder[fd])
 		return (NULL);
-	line = ft_extract_line(remainder);
-	remainder = ft_update_stash(remainder);
+	line = ft_extract_line(remainder[fd]);
+	remainder[fd] = ft_update_stash(remainder[fd]);
 	return (line);
 }

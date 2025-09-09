@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/15 17:04:57 by liferrei          #+#    #+#             */
+/*   Updated: 2025/07/27 14:57:06 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	const char	*last;
+	size_t			i;
+	unsigned char	*c1;
+	unsigned char	*c2;
 
-	last = NULL;
-	while (*s)
+	c1 = (unsigned char *)s1;
+	c2 = (unsigned char *)s2;
+	i = 0;
+	if (n == 0)
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		return (0);
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	while (i < n)
+	{
+		if (c1[i] != c2[i] || c1[i] == '\0' || c2[i] == '\0')
+		{
+			return (c1[i] - c2[i]);
+		}
+		i++;
+	}
+	return (0);
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/30 17:32:18 by liferrei          #+#    #+#             */
+/*   Updated: 2025/08/07 11:41:03 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_print_hex(unsigned long num, int uppercase)
 {
-	const char	*last;
+	char	*base;
+	char	c;
+	int		count;
 
-	last = NULL;
-	while (*s)
-	{
-		if (*s == (char)c)
-			last = s;
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	count = 0;
+	if (uppercase == 1)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (num >= 16)
+		count += ft_print_hex(num / 16, uppercase);
+	c = base[num % 16];
+	count += write(1, &c, 1);
+	return (count);
 }

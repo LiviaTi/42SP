@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 16:12:54 by liferrei          #+#    #+#             */
-/*   Updated: 2025/07/27 14:57:18 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/28 14:32:05 by liferrei          #+#    #+#             */
+/*   Updated: 2025/09/09 17:02:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	const char	*last;
+	int	count;
 
-	last = NULL;
-	while (*s)
+	count = 0;
+	while (lst)
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		count++;
+		lst = lst->next;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	return (count);
 }
