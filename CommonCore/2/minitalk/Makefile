@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/12 10:55:32 by liferrei         ###   ########.fr        #
+#    Updated: 2025/09/12 11:14:28 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = minitalk
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-MLX_DIR = mlx
 LIBFT_DIR = libft
 
 

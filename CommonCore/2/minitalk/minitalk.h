@@ -6,7 +6,19 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:55:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 10:55:49 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/12 12:43:24 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRACTOL_H
+# define FRACTOL_H
+
+# include <stdlib.h>
+# include <signal.h>
+
+# include "libft/ft_printf/ft_printf.h"
+# include "libft/libft.h"
+
+int main (void);
+
+#endif
