@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:55:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 12:43:24 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:11:59 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "libft/ft_printf/ft_printf.h"
 # include "libft/libft.h"
 
-int main (void);
+
+int	main(void);
 
 #endif
