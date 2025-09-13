@@ -6,14 +6,15 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:53:51 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 20:47:21 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/12 22:56:35 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
-void ft_signal_handler(int sig_num)
+static t_server	g_server;
+
+static void	ft_signal_handle(int sig, sig)
 {
 	if (sig_num == SIGUSR1)
 	{
@@ -26,19 +27,14 @@ void ft_signal_handler(int sig_num)
 }
 int main(void)
 {
-    struct sigaction    sa;
-    pid_t               server_pid;
+	struct sigaction	sa;
 
-    sa.sa_flags = SA_SIGINFO;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_sigaction = &ft_signal_handle;
-    if (sigaction(SIGUSR1, &sa, NULL) == -1)
-        return (1);
-    if (sigaction(SIGUSR2, &sa, NULL) == -1)
-        return (1);
-    server_pid = getpid();
-    ft_printf("Server PID: %d\n", server_pid);
-    while (1)
-        pause();
-    return (0);
+	ft_printf("Server PID: %d\n", getpid());
+	g_server.client_pid = 0;
+	g_server.bit_count = 0;
+	g_server.current_char = 0;
+	sa.sa_sigaction = ft_signal_handle;
+	while (1)
+		pause();
+	return (0);
 }
