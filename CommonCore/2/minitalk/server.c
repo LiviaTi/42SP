@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:53:51 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 01:49:13 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 02:11:47 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_signal_handle(int sig, siginfo_t *info, void *context)
 	g_server.bit_count++;
 	if (g_server.bit_count == 8)
 	{
-		if(g_server.current_char == '\0')
+		if (g_server.current_char == '\0')
 			write(1, "\n", 1);
 		else
 			write(1, &g_server.current_char, 1);
@@ -36,7 +36,7 @@ static void	ft_signal_handle(int sig, siginfo_t *info, void *context)
 		g_server.current_char = 0;
 	}
 }
-int main(void)
+int	main(void)
 {
 	struct sigaction	sa;
 

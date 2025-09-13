@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/12 20:26:57 by liferrei         ###   ########.fr        #
+#    Updated: 2025/09/13 02:19:36 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT= $(LIBFT_DIR)/libft.a
+FT_PRINTF_DIR = ft_printf
+FT_PRINTF = $(LIBFT_DIR)/$(FT_PRINTF_DIR)/ft_printf.a
 INCLUDES = -I $(LIBFT_DIR) -I $(LIBFT_DIR)/ft_printf
 
 NAME_SRCS = server.c client.c
