@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 11:51:40 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 13:24:17 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:39:25 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_init_fractol(t_fractol *f)
 		mlx_destroy_window(f->mlx_ptr, f->win_ptr);
 		exit(1);
 	}
-	    ft_printf("Fractal válifihfdo.\n");
 	f->img_data = mlx_get_data_addr(f->img_ptr, &f->bpp, &f->l_size, &f->end);
 	if (!f->img_data)
 	{

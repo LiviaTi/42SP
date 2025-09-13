@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 10:23:09 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 13:31:14 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:41:37 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 # define KEYS_H
 
 // Keycodes for Linux
-#ifndef LINUX
-# define LINUX 0
-#  define KEY_ESC			53
-#  define KEY_LEFT			123
-#  define KEY_RIGHT			124
-#  define KEY_UP			126
-#  define KEY_DOWN			125
-# endif 
+# define KEY_ESC     65307
+# define KEY_LEFT    65361
+# define KEY_RIGHT   65363
+# define KEY_UP      65362
+# define KEY_DOWN    65364
+
 #endif
