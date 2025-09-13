@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:08:35 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 10:35:56 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:26:53 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	ft_draw_mandelbrot(t_fractol *fractol)
 			iter = ft_calculate_iter(c, fractol->max_iter);
 			color = ft_color(iter, fractol->max_iter);
 			ft_put_pixel(fractol, x_pixel, y_pixel, color);
+			x_pixel++;
 		}
+		y_pixel++;
 	}	
 }

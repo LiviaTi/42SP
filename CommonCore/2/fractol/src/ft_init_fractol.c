@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 11:51:40 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 13:39:25 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:47:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	clean_init(t_fractol *f, t_complex *c)
 	c->real = 0.0;
 	c->imag = 0.0;
 }
+
 void	ft_init_fractol(t_fractol *f)
 {
 	f->mlx_ptr = mlx_init();

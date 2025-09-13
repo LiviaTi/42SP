@@ -6,21 +6,11 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 17:35:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 10:34:50 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:00:44 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static void	ft_terminal_print(void)
-{
-	ft_printf("Usage: ./fractol [mandelbrot | julia c_real c_imag]");
-	ft_printf("mandelbrot: Displays the Mandelbrot set.\n");
-	ft_printf("julia: Displays the Julia set with custom parameters.\n");
-	ft_printf("	c_real: Complex constant 'c' for Julia (e.g., -0.7).\n");
-	ft_printf(" c_imag: Complex constant 'c' for Julia (e.g., 0.27015).\n");
-	exit(1);
-}
 
 static char	*ft_str_tolower(const char *str)
 {
@@ -29,11 +19,9 @@ static char	*ft_str_tolower(const char *str)
 
 	if (!str)
 		return (NULL);
-
 	i = 0;
 	while (str[i])
 		i++;
-
 	lower = (char *)malloc(sizeof(char) * (i + 1));
 	if (!lower)
 		return (NULL);
@@ -49,6 +37,7 @@ static char	*ft_str_tolower(const char *str)
 	lower[i] = '\0';
 	return (lower);
 }
+
 static int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
@@ -58,33 +47,50 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
+
+static double	ft_parse_frac(const char *str)
+{
+	double	frac;
+	int		div;
+
+	frac = 0.0;
+	div = 1;
+	while (*str >= '0' && *str <= '9')
+	{
+		frac = frac * 10 + (*str++ - '0');
+		div *= 10;
+	}
+	return (frac / div);
+}
+
 double	ft_atof(const char *str)
 {
-	double	result = 0.0;
-	double	frac = 0.0;
-	int		sign = 1;
-	int		div = 1;
+	double	result;
+	double	frac;
+	int		sign;
 
+	result = 0.0;
+	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
-		sign = (*str++ == '-') ? -1 : 1;
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 		result = result * 10 + (*str++ - '0');
+	frac = 0.0;
 	if (*str == '.')
-	{
-		str++;
-		while (*str >= '0' && *str <= '9')
-			frac = frac * 10 + (*str++ - '0'), div *= 10;
-		result += frac / div;
-	}
-	return (result * sign);
+		frac = ft_parse_frac(++str);
+	return ((result + frac) * sign);
 }
 
 void	ft_is_valid(int argc, char *argv[], t_fractol *fractol)
 {
 	char	*fractal_name;
-	
+
 	if (argc < 2)
 		ft_terminal_print();
 	fractal_name = ft_str_tolower(argv[1]);
