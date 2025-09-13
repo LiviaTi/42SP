@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:53:51 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 22:56:35 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/12 23:11:54 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,26 @@
 
 static t_server	g_server;
 
-static void	ft_signal_handle(int sig, sig)
+static void	ft_signal_handle(int sig, siginfo_t *info, void *context)
 {
-	if (sig_num == SIGUSR1)
+	
+	(void)context;
+	if (g_server.client_pid != info->si_pid)
 	{
-		// bit 0
+		g_server.client_pid = info->si_pid;
+		g_server.bit_count = 0;
+		g_server.current_char = 0;
 	}
-	else if (sig_num == SIGUSR2)
+	g_server.current_char = (g_server.current_char << 1) | (sig == SIGUSR2);
+	g_server.bit_count++;
+	if (g_server.bit_count == 8)
 	{
-		// bit 1	
+		if(g_server.current_char == '\0')
+			write(1, "\n", 1);
+		else
+			write(1, &g_server.current_char, 1);
+		g_server.bit_count = 0;
+		g_server.current_char = 0;
 	}
 }
 int main(void)
