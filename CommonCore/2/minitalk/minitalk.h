@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:55:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 06:43:02 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 06:57:21 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <signal.h>
 # include <unistd.h>
 
-#include "libft.h"
-#include "ft_printf.h" 
+# include "libft.h"
+# include "ft_printf.h" 
 
 typedef struct s_server
 {

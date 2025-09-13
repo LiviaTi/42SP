@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 18:50:20 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:15:32 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,19 @@ typedef struct s_fractol
 	t_complex	z;
 	int			max_iter;
 	int			fractal_type;
-	
 	double		zoom;
 	double		offset_x;
 	double		offset_y;
 }				t_fractol;
 
-int		main(void);
-void	ft_draw_julia(t_fractol *f);
-void	ft_draw_mandelbrot(t_fractol *f);
-void	ft_put_pixel(t_fractol *f, int x, int y, int color);
-int		ft_get_color(int iter, int max_iter);
-void	ft_init_fractol(t_fractol *f, int fractal_type);
-void	ft_is_valid(int argc, char *argv[]);
-char	*ft_str_tolower(char *str);
-int		ft_isdigit(int c);
+int		main(int argc, char *argv[]);
+void	ft_is_valid(int argc, char *argv[], t_fractol *fractol);
+void	ft_init_fractol(t_fractol *f);
+int		ft_handle_keypress(int keycode, t_fractol *fractol);
+int		ft_handle_destroy(t_fractol *fractol);
+int		ft_handle_mouse(int button, int x, int y, t_fractol *frac);
+int		ft_render_frame(t_fractol *frac);
+void	ft_draw_mandelbrot(t_fractol *fractol);
+void	ft_draw_julia(t_fractol *fractol);
 
 #endif

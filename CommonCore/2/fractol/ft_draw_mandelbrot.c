@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:08:35 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 18:57:16 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:08:06 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_calculate_iter(t_complex c, int max_iter)
 	return (iter);
 }
 
-void	ft_ft_draw_mandelbrot(t_fractol *fractol)
+void	ft_draw_mandelbrot(t_fractol *fractol)
 {
 	int			x_pixel;
 	int			y_pixel;
