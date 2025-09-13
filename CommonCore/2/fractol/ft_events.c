@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:14:29 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 18:37:32 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 09:07:11 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ int	ft_handle_keypress(int keycode, t_fractol *fractol)
 		fractol->offset_y += 0.1 * fractol->zoom;
 	else
 		return (0);
+	return (1);
 }
 
 int	ft_handle_destroy(t_fractol *fractol)
 {
-	exit_clean(fractol);
+	ft_exit_clean(fractol);
 	return (0);
 }
 
@@ -64,11 +65,11 @@ int	ft_handle_mouse(int button, int x, int y, t_fractol *frac)
 	}
 	else
 		return (0);
-	ft_render_frame(frac);
+	ft_events(frac);
 	return (0);
 }
 
-int	ft_render_frame(t_fractol *frac)
+int	ft_events(t_fractol *frac)
 {
 	if (frac ->fractal_type == MANDELBROT_TYPE)
 		ft_draw_mandelbrot(frac);

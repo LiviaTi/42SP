@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 18:27:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 18:57:05 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 07:21:54 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_draw_julia(t_fractol *fractol)
 			z_init.real = ft_map_x_to_real(x_pixel, fractol);
 			z_init.imag = ft_map_y_to_imag(y_pixel, fractol);
 			iter = ft_calculate_iter(z_init, fractol->c, fractol->max_iter);
-			color = get_color(iter, fractol->max_iter);
+			color = ft_color(iter, fractol->max_iter);
 			ft_put_pixel(fractol, x_pixel, y_pixel, color);
 			x_pixel++;
 		}

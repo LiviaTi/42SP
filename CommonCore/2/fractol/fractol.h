@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 19:15:32 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 09:06:18 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,13 @@ void	ft_init_fractol(t_fractol *f);
 int		ft_handle_keypress(int keycode, t_fractol *fractol);
 int		ft_handle_destroy(t_fractol *fractol);
 int		ft_handle_mouse(int button, int x, int y, t_fractol *frac);
-int		ft_render_frame(t_fractol *frac);
+int		ft_events(t_fractol *frac);
 void	ft_draw_mandelbrot(t_fractol *fractol);
 void	ft_draw_julia(t_fractol *fractol);
+void	ft_put_pixel(t_fractol *fractol, int x, int y, int color);
+int		ft_color(int iterations, int max_iter);
+double	ft_map_x_to_real(int x, t_fractol *fractol);
+double	ft_map_y_to_imag(int y, t_fractol *fractol);
+
 
 #endif
