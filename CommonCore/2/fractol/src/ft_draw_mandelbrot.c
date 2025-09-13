@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_julia.c                                    :+:      :+:    :+:   */
+/*   ft_draw_mandelbrot.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 18:27:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 07:21:54 by liferrei         ###   ########.fr       */
+/*   Created: 2025/09/05 12:08:35 by liferrei          #+#    #+#             */
+/*   Updated: 2025/09/13 10:35:56 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	ft_calculate_iter(t_complex z_init, t_complex c_const, int max_iter)
+static int	ft_calculate_iter(t_complex c, int max_iter)
 {
 	t_complex	z;
 	double		z_temp_real;
 	int			iter;
 
-	z = z_init;
+	z.real = 0.0;
+	z.imag = 0.0;
 	iter = 0;
 	while (iter < max_iter)
 	{
-		z_temp_real = z.real * z.real - z.imag * z.imag + c_const.real;
-		z.imag = 2.0 * z.real * z.imag + c_const.imag;
+		z_temp_real = z.real * z.real - z.imag * z.imag + c.real;
+		z.imag = 2.0 * z.real * z.imag + c.imag;
 		z.real = z_temp_real;
 		if (z.real * z.real + z.imag * z.imag > 4.0)
 			break ;
@@ -32,11 +33,11 @@ static int	ft_calculate_iter(t_complex z_init, t_complex c_const, int max_iter)
 	return (iter);
 }
 
-void	ft_draw_julia(t_fractol *fractol)
+void	ft_draw_mandelbrot(t_fractol *fractol)
 {
 	int			x_pixel;
 	int			y_pixel;
-	t_complex	z_init;
+	t_complex	c;
 	int			iter;
 	int			color;
 
@@ -46,13 +47,11 @@ void	ft_draw_julia(t_fractol *fractol)
 		x_pixel = 0;
 		while (x_pixel < WIDTH)
 		{
-			z_init.real = ft_map_x_to_real(x_pixel, fractol);
-			z_init.imag = ft_map_y_to_imag(y_pixel, fractol);
-			iter = ft_calculate_iter(z_init, fractol->c, fractol->max_iter);
+			c.real = ft_map_x_to_real(x_pixel, fractol);
+			c.imag = ft_map_y_to_imag(y_pixel, fractol);
+			iter = ft_calculate_iter(c, fractol->max_iter);
 			color = ft_color(iter, fractol->max_iter);
 			ft_put_pixel(fractol, x_pixel, y_pixel, color);
-			x_pixel++;
 		}
-		y_pixel++;
-	}
+	}	
 }

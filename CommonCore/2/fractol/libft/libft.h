@@ -6,12 +6,11 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:27:59 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/09 17:07:45 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:36:11 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-
 # define LIBFT_H
 
 # include	<unistd.h>

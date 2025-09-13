@@ -6,12 +6,29 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 11:51:40 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 09:21:30 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:24:17 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	clean_init(t_fractol *f, t_complex *c)
+{
+	f->mlx_ptr = NULL;
+	f->win_ptr = NULL;
+	f->img_ptr = NULL;
+	f->img_data = NULL;
+	f->bpp = 0;
+	f->l_size = 0;
+	f->end = 0;
+	f->max_iter = 0;
+	f->fractal_type = 0;
+	f->zoom = 0.0;
+	f->offset_x = 0.0;
+	f->offset_y = 0.0;
+	c->real = 0.0;
+	c->imag = 0.0;
+}
 void	ft_init_fractol(t_fractol *f)
 {
 	f->mlx_ptr = mlx_init();
@@ -26,7 +43,8 @@ void	ft_init_fractol(t_fractol *f)
 		mlx_destroy_window(f->mlx_ptr, f->win_ptr);
 		exit(1);
 	}
-	f->img_data = mlx_get_data_addr(f->win_ptr, &f->bpp, &f->l_size, &f->end);
+	    ft_printf("Fractal válifihfdo.\n");
+	f->img_data = mlx_get_data_addr(f->img_ptr, &f->bpp, &f->l_size, &f->end);
 	if (!f->img_data)
 	{
 		mlx_destroy_image(f->mlx_ptr, f->img_ptr);

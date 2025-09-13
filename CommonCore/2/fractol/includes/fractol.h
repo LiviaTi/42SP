@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 09:06:18 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:29:55 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include <stdlib.h>
 # include <math.h>
 
-# include "mlx/mlx.h"
-# include "libft/ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "../mlx/mlx.h"
+# include "../libft/ft_printf/ft_printf.h"
+# include "../libft/libft.h"
+# include "keys.h"
 
 // Window and image dimensions
 # define WIDTH 800
@@ -27,20 +28,13 @@
 // Max iterations for fractal calculation [1,2]
 # define MAX_ITER 40
 
-// Fractal type
-# define MANDELBROT_TYPE	0
-# define JULIA_TYPE			1
-
-// Keycodes for Linux
-# define KEY_ESC			65307
-# define KEY_LEFT			65361
-# define KEY_RIGHT			65363
-# define KEY_UP				65362
-# define KEY_DOWN			65364
-
 // Mouse button codes for scroll
 # define MOUSE_SCROLL_UP	4
 # define MOUSE_SCROLL_DOWN	5
+
+// Fractal type
+# define MANDELBROT_TYPE	0
+# define JULIA_TYPE			1
 
 typedef struct s_complex
 {
@@ -81,6 +75,6 @@ void	ft_put_pixel(t_fractol *fractol, int x, int y, int color);
 int		ft_color(int iterations, int max_iter);
 double	ft_map_x_to_real(int x, t_fractol *fractol);
 double	ft_map_y_to_imag(int y, t_fractol *fractol);
-
+void	clean_init(t_fractol *f, t_complex *c);
 
 #endif
