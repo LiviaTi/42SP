@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:55:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 13:23:58 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/12 21:24:02 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@
 # include "libft/ft_printf/ft_printf.h"
 # include "libft/libft.h"
 
-typedef struct	s_signal
+typedef struct	s_server
 {
-	
-} 				t_signal;
+	pid_t		client_pid;
+	int			bit_count;
+	int			current_char;
+}				t_server;
 
+typedef struct	s_client
+{
+	pid_t		server_pid;
+}				t_client;
 
-
+void	ft_send_char(pid_t server_pid, unsigned char c);
+void	ft_send_bit(pid_t server_pid, int bit);
 
 #endif
