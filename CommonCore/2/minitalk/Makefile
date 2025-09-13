@@ -6,42 +6,52 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/13 02:19:36 by liferrei         ###   ########.fr        #
+#    Updated: 2025/09/13 06:51:06 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = libft
-LIBFT= $(LIBFT_DIR)/libft.a
-FT_PRINTF_DIR = ft_printf
-FT_PRINTF = $(LIBFT_DIR)/$(FT_PRINTF_DIR)/ft_printf.a
-INCLUDES = -I $(LIBFT_DIR) -I $(LIBFT_DIR)/ft_printf
-
-NAME_SRCS = server.c client.c
-
 SERVER = server
 CLIENT = client
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)
 
-all: $(LIBFT) $(SERVER) $(CLIENT)
+LIBFT_DIR = libft
+FT_PRINTF_DIR = libft/ft_printf
+
+LIBFT = $(LIBFT_DIR)/libft.a
+FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
+
+SRCS_SERVER = server.c
+SRCS_CLIENT = client.c
+
+OBJS_SERVER = $(SRCS_SERVER:.c=.o)
+OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
+
+all: $(FT_PRINTF_LIB) $(LIBFT) $(SERVER) $(CLIENT)
+
+$(FT_PRINTF_LIB):
+	make -C $(FT_PRINTF_DIR)
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
-$(SERVER): server.c minitalk.h $(LIBFT)
-	$(CC) $(CFLAGS) $(INCLUDES) server.c $(LIBFT) -o $(SERVER)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(CLIENT): client.c minitalk.h $(LIBFT)
-	$(CC) $(CFLAGS) $(INCLUDES) client.c $(LIBFT) -o $(CLIENT)
+$(SERVER): $(OBJS_SERVER)
+	$(CC) $(CFLAGS) $(OBJS_SERVER) -L$(LIBFT_DIR) -lft $(FT_PRINTF_LIB) -o $(SERVER)
+
+$(CLIENT): $(OBJS_CLIENT)
+	$(CC) $(CFLAGS) $(OBJS_CLIENT) -L$(LIBFT_DIR) -lft $(FT_PRINTF_LIB) -o $(CLIENT)
 
 clean:
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@rm -f *.o
+	make -C $(LIBFT_DIR) clean
+	make -C $(FT_PRINTF_DIR) clean
+	rm -f $(OBJS_SERVER) $(OBJS_CLIENT)
 
 fclean: clean
-	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@rm -f $(SERVER) $(CLIENT)
+	make -C $(LIBFT_DIR) fclean
+	make -C $(FT_PRINTF_DIR) fclean
+	rm -f $(SERVER) $(CLIENT)
 
 re: fclean all
-
-.PHONY: all clean fclean re

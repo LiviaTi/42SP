@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:53:55 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 02:16:22 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 06:52:04 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static t_client g_client;
+static t_client	g_client;
 
 void	ft_send_bit(pid_t server_pid, int bit)
 {
@@ -22,7 +22,6 @@ void	ft_send_bit(pid_t server_pid, int bit)
 		ret = kill(server_pid, SIGUSR2);
 	else
 		ret = kill(server_pid, SIGUSR1);
-
 	if (ret == -1)
 	{
 		ft_printf("Error seding signal \n");
@@ -30,7 +29,8 @@ void	ft_send_bit(pid_t server_pid, int bit)
 	}
 	usleep(100);
 }
-void	send_char(pid_t server_pid, unsigned char c)
+
+void	ft_send_char(pid_t server_pid, unsigned char c)
 {
 	int	i;
 
@@ -41,7 +41,8 @@ void	send_char(pid_t server_pid, unsigned char c)
 		i--;
 	}
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
 	size_t	i;
 
@@ -55,7 +56,7 @@ int main(int argc, char **argv)
 	if (g_client.server_pid <= 0)
 	{
 		ft_printf("Invalid PID \n");
-		return(1);
+		return (1);
 	}
 	while (argv[2][i])
 	{
