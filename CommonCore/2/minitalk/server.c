@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:53:51 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/12 23:11:54 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 01:49:13 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int main(void)
 	g_server.bit_count = 0;
 	g_server.current_char = 0;
 	sa.sa_sigaction = ft_signal_handle;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
 	return (0);
