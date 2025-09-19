@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/13 06:51:06 by liferrei         ###   ########.fr        #
+#    Updated: 2025/09/19 15:50:35 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,16 @@ SRCS_CLIENT = client.c
 OBJS_SERVER = $(SRCS_SERVER:.c=.o)
 OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 
+BONUS_SRC_SERVER = server_bonus.c
+BONUS_SRC_CLIENT = client_bonus.c
+
+BONUS_OBJS_SERVER = $(BONUS_SRCS_SERVER:.c=.o)
+BONUS_OBJS_CLIENT = $(BONUS_SRCS_CLIENT:.c=.o)
+
 all: $(FT_PRINTF_LIB) $(LIBFT) $(SERVER) $(CLIENT)
+
+bonus: $(OBJ) $(BONUS_OBJ)
+	$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
 
 $(FT_PRINTF_LIB):
 	make -C $(FT_PRINTF_DIR)
@@ -47,7 +56,7 @@ $(CLIENT): $(OBJS_CLIENT)
 clean:
 	make -C $(LIBFT_DIR) clean
 	make -C $(FT_PRINTF_DIR) clean
-	rm -f $(OBJS_SERVER) $(OBJS_CLIENT)
+	rm -f $(OBJS_SERVER) $(OBJS_CLIENT) $(BONUS_OBJS_SERVER) $(BONUS_OBJS_CLIENT)
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean
