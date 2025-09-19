@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 15:35:41 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/19 15:35:52 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/19 18:19:08 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ typedef struct s_server
 typedef struct s_client
 {
 	pid_t		server_pid;
+	int			ack;
 }				t_client;
 #endif
