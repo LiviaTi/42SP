@@ -6,25 +6,16 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:14:29 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 14:52:03 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:29:41 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_exit_clean(t_fractol *fractol)
-{
-	if (fractol->img_ptr)
-		mlx_destroy_image(fractol->mlx_ptr, fractol->img_ptr);
-	if (fractol->win_ptr)
-		mlx_destroy_window(fractol->mlx_ptr, fractol->win_ptr);
-	exit(0);
-}
-
 int	ft_handle_keypress(int keycode, t_fractol *fractol)
 {
 	if (keycode == KEY_ESC)
-		ft_exit_clean(fractol);
+		ft_clean_exit(fractol);
 	else if (keycode == KEY_LEFT)
 		fractol->offset_x -= 0.1 * fractol->zoom;
 	else if (keycode == KEY_RIGHT)
@@ -38,10 +29,18 @@ int	ft_handle_keypress(int keycode, t_fractol *fractol)
 	return (1);
 }
 
-int	ft_handle_destroy(t_fractol *fractol)
+int	ft_clean_exit(t_fractol *f)
 {
-	ft_exit_clean(fractol);
-	return (0);
+	if (f->img_ptr)
+		mlx_destroy_image(f->mlx_ptr, f->img_ptr);
+	if (f->win_ptr)
+		mlx_destroy_window(f->mlx_ptr, f->win_ptr);
+	if (f->mlx_ptr)
+	{
+		mlx_destroy_display(f->mlx_ptr);
+		free(f->mlx_ptr);
+	}
+	exit(0);
 }
 
 int	ft_handle_mouse(int button, int x, int y, t_fractol *frac)

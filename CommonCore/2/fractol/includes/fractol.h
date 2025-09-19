@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:02:57 by liferrei          #+#    #+#             */
-/*   Updated: 2025/09/13 13:52:12 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/09/19 13:33:31 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 
 // Max iterations for fractal calculation [1,2]
 # define MAX_ITER 40
+
+// Mouse button codes for scroll
+# define MOUSE_SCROLL_UP	4
+# define MOUSE_SCROLL_DOWN	5
 
 // Fractal type
 # define MANDELBROT_TYPE	0
@@ -62,14 +66,15 @@ int		main(int argc, char *argv[]);
 void	ft_is_valid(int argc, char *argv[], t_fractol *fractol);
 void	ft_init_fractol(t_fractol *f);
 int		ft_handle_keypress(int keycode, t_fractol *fractol);
-int		ft_handle_destroy(t_fractol *fractol);
+int		ft_handle_mouse(int button, int x, int y, t_fractol *frac);
 int		ft_events(t_fractol *frac);
 void	ft_draw_mandelbrot(t_fractol *fractol);
 void	ft_draw_julia(t_fractol *fractol);
 void	ft_put_pixel(t_fractol *fractol, int x, int y, int color);
+double	ft_atof(const char *str);
 int		ft_color(int iterations, int max_iter);
 double	ft_map_x_to_real(int x, t_fractol *fractol);
 double	ft_map_y_to_imag(int y, t_fractol *fractol);
-void	clean_init(t_fractol *f, t_complex *c);
-
+int		ft_clean_exit(t_fractol *f);
+int		ft_strcmp(const char *s1, const char *s2);
 #endif
