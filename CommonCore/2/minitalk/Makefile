@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/05 12:00:47 by liferrei          #+#    #+#              #
-#    Updated: 2025/09/19 18:10:57 by liferrei         ###   ########.fr        #
+#    Created: 2025/09/19 18:13:59 by liferrei          #+#    #+#              #
+#    Updated: 2025/09/19 18:14:07 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,4 +51,24 @@ $(SERVER): $(OBJS_SERVER)
 	$(CC) $(CFLAGS) $(OBJS_SERVER) $(LIBFT) $(FT_PRINTF_LIB) -o $(SERVER)
 
 $(CLIENT): $(OBJS_CLIENT)
-	$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) $(FT_PRINTF_LIB_
+	$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) $(FT_PRINTF_LIB) -o $(CLIENT)
+
+$(SERVER_BONUS): $(OBJS_SERVER_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_SERVER_BONUS) $(LIBFT) $(FT_PRINTF_LIB) -o $(SERVER_BONUS)
+
+$(CLIENT_BONUS): $(OBJS_CLIENT_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_CLIENT_BONUS) $(LIBFT) $(FT_PRINTF_LIB) -o $(CLIENT_BONUS)
+
+clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(FT_PRINTF_DIR) clean
+	rm -f $(OBJS_SERVER) $(OBJS_CLIENT) $(OBJS_SERVER_BONUS) $(OBJS_CLIENT_BONUS)
+
+fclean: clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(FT_PRINTF_DIR) fclean
+	rm -f $(SERVER) $(CLIENT) $(SERVER_BONUS) $(CLIENT_BONUS)
+
+re: fclean all
+
+.PHONY: all clean fclean re bonus
